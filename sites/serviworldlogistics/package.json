@@ -1,0 +1,21 @@
+{
+  "name": "serviworldlogistics",
+  "version": "1.0.0",
+  "description": "Serviworld Logistics - Sitio estático con KINTO CSM",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "skill:add": "node scripts/skill-add.js",
+    "skill:remove": "node scripts/skill-remove.js"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "@kinto/core": "file:../../core"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

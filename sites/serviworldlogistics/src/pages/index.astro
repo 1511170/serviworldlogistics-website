@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteConfig from '../../config/site.config.ts';
+
+// Verificar skills activas
+const activeSkills = JSON.parse(
+  import.meta.env.SKILLS_ACTIVE || '[]'
+);
+---
+
+<Layout>
+  <main class="min-h-screen bg-gradient-to-br from-brand-50 to-white">
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 py-20 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold text-brand-900 mb-6">
+        {siteConfig.site.name}
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        {siteConfig.site.description}
+      </p>
+      
+      <!-- Este sitio está en modo "core limpio" hasta que se instalen skills -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 max-w-3xl mx-auto mt-12">
+        <h2 class="text-2xl font-semibold mb-4">🚀 Estado del Sitio</h2>
+        
+        {activeSkills.length === 0 ? (
+          <div class="space-y-4">
+            <p class="text-gray-600">
+              Core mínimo activo. Este sitio está listo para que IA genere contenido.
+            </p>
+            <div class="bg-gray-100 rounded-lg p-4 text-left">
+              <p class="text-sm text-gray-500 mb-2">Para extender funcionalidad:</p>
+              <code class="text-sm bg-gray-800 text-green-400 px-3 py-2 rounded block">
+                kinto skill add [nombre-skill]
+              </code>
+            </div>
+            <p class="text-sm text-gray-500">
+              O usa Kimi Code para generar el sitio completo con las skills necesarias.
+            </p>
+          </div>
+        ) : (
+          <div>
+            <p class="text-green-600 font-medium">
+              ✅ {activeSkills.length} skill(s) activa(s)
+            </p>
+            <ul class="mt-4 space-y-2">
+              {activeSkills.map((skill: string) => (
+                <li class="text-gray-600">• {skill}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      
+      <!-- Placeholder para contenido generado por IA -->
+      <div class="mt-20 grid md:grid-cols-3 gap-8 text-left">
+        <div class="bg-white rounded-xl p-6 shadow">
+          <div class="w-12 h-12 bg-brand-100 rounded-lg mb-4"></div>
+          <h3 class="font-semibold text-lg mb-2">Transporte Global</h3>
+          <p class="text-gray-600 text-sm">Soluciones de transporte internacional aéreo, marítimo y terrestre.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow">
+          <div class="w-12 h-12 bg-brand-100 rounded-lg mb-4"></div>
+          <h3 class="font-semibold text-lg mb-2">Almacenamiento</h3>
+          <p class="text-gray-600 text-sm">Centros de distribución estratégicos con tecnología de punta.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow">
+          <div class="w-12 h-12 bg-brand-100 rounded-lg mb-4"></div>
+          <h3 class="font-semibold text-lg mb-2">Consultoría</h3>
+          <p class="text-gray-600 text-sm">Optimización de cadenas de suministro y logística.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
