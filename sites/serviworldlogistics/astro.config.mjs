@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import siteConfig from './config/site.config.ts';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -17,17 +18,30 @@ console.log('✅ Skills activas:', activeSkills.length ? activeSkills.join(', ')
 export default defineConfig({
   output: siteConfig.build.output,
   site: `https://${siteConfig.site.domain}`,
-  
-  // Sin integración @astrojs/tailwind - usamos PostCSS para Tailwind 4
-  integrations: [],
+
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/admin'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
+  ],
   
   build: {
     format: 'directory',
     compressHTML: siteConfig.build.compressHTML
   },
   
+  server: {
+    allowedHosts: true
+  },
+  
   vite: {
     // Alias para skills - ¡USAR ESTOS EN LUGAR DE RUTAS RELATIVAS!
+    server: {
+      allowedHosts: true
+    },
     resolve: {
       alias: {
         '@skills': join(__dirname, '../../skills'),

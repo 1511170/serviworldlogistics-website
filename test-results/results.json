@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-02-10T12:53:38.325Z",
+  "baseUrl": "http://localhost:3000/servicios/transporte-maritimo",
+  "tests": [
+    {
+      "page": "/",
+      "url": "http://localhost:3000/servicios/transporte-maritimo/",
+      "viewports": [
+        {
+          "name": "mobile",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/"
+        },
+        {
+          "name": "tablet",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/"
+        },
+        {
+          "name": "desktop",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/"
+        }
+      ]
+    },
+    {
+      "page": "/servicios",
+      "url": "http://localhost:3000/servicios/transporte-maritimo/servicios",
+      "viewports": [
+        {
+          "name": "mobile",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/servicios"
+        },
+        {
+          "name": "tablet",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/servicios"
+        },
+        {
+          "name": "desktop",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/servicios"
+        }
+      ]
+    },
+    {
+      "page": "/nosotros",
+      "url": "http://localhost:3000/servicios/transporte-maritimo/nosotros",
+      "viewports": [
+        {
+          "name": "mobile",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/nosotros"
+        },
+        {
+          "name": "tablet",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/nosotros"
+        },
+        {
+          "name": "desktop",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/nosotros"
+        }
+      ]
+    },
+    {
+      "page": "/contacto",
+      "url": "http://localhost:3000/servicios/transporte-maritimo/contacto",
+      "viewports": [
+        {
+          "name": "mobile",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/contacto"
+        },
+        {
+          "name": "tablet",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/contacto"
+        },
+        {
+          "name": "desktop",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/contacto"
+        }
+      ]
+    },
+    {
+      "page": "/blog",
+      "url": "http://localhost:3000/servicios/transporte-maritimo/blog",
+      "viewports": [
+        {
+          "name": "mobile",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/blog"
+        },
+        {
+          "name": "tablet",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/blog"
+        },
+        {
+          "name": "desktop",
+          "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/servicios/transporte-maritimo/blog"
+        }
+      ]
+    }
+  ]
+}

@@ -1,196 +1,295 @@
 ---
 import siteConfig from '../../config/site.config.ts';
+import SEOHead from '../components/SEOHead.astro';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  noindex?: boolean;
 }
 
-const { 
+const {
   title = siteConfig.site.name,
-  description = siteConfig.site.description 
+  description = siteConfig.site.description,
+  image,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author,
+  noindex = false,
 } = Astro.props;
 
 const navLinks = [
   { href: "/", label: "Inicio" },
-  { href: "/servicios", label: "Servicios" },
   { href: "/nosotros", label: "Nosotros" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/contacto", label: "Contáctanos" },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
-<html lang={siteConfig.site.language}>
+<html lang={siteConfig.site.language} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <SEOHead
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      author={author}
+      noindex={noindex}
+    />
+
+    <!-- AI/LLM Discovery -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Information" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Skills inyectan aquí sus meta tags, schemas, scripts -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <slot name="head" />
     
     {siteConfig.site.favicon && (
       <link rel="icon" type="image/x-icon" href={siteConfig.site.favicon} />
     )}
   </head>
-  <body class="antialiased">
+  <body class="font-body antialiased bg-white text-slate-900">
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-24">
           <!-- Logo -->
-          <a href="/" class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-xl">S</span>
-            </div>
-            <span class="font-bold text-xl text-gray-900 hidden sm:block">Serviworld</span>
+          <a href="/" class="flex items-center space-x-3 group">
+            <img 
+              src="/logo-new.png" 
+              alt="Serviworld Logistics" 
+              class="h-14 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </a>
           
           <!-- Desktop Nav -->
-          <nav class="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a 
-                href={link.href} 
-                class="text-gray-600 hover:text-brand-600 font-medium transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          
-          <!-- CTA -->
-          <div class="hidden md:block">
+          <div class="hidden md:flex items-center space-x-10">
             <a 
-              href="/contacto" 
-              class="inline-flex items-center px-4 py-2 bg-brand-600 text-white font-medium rounded-lg hover:bg-brand-700 transition-colors"
+              href="/"
+              class={`font-bold text-sm uppercase tracking-wider transition-colors pb-1 border-b-2 ${
+                currentPath === '/' 
+                  ? 'text-primary border-accent' 
+                  : 'text-slate-600 border-transparent hover:text-accent hover:border-accent'
+              }`}
             >
-              Cotizar
+              Inicio
+            </a>
+            <a 
+              href="/nosotros"
+              class={`font-bold text-sm uppercase tracking-wider transition-colors pb-1 border-b-2 ${
+                currentPath === '/nosotros' 
+                  ? 'text-primary border-accent' 
+                  : 'text-slate-600 border-transparent hover:text-accent hover:border-accent'
+              }`}
+            >
+              Nosotros
+            </a>
+            
+            <!-- Servicios Dropdown -->
+            <div class="relative group">
+              <a 
+                href="/servicios"
+                class={`font-bold text-sm uppercase tracking-wider transition-colors pb-1 border-b-2 flex items-center gap-1 ${
+                  currentPath.startsWith('/servicios') 
+                    ? 'text-primary border-accent' 
+                    : 'text-slate-600 border-transparent hover:text-accent hover:border-accent'
+                }`}
+              >
+                Servicios
+                <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+              </a>
+              
+              <!-- Dropdown Menu -->
+              <div class="absolute top-full left-0 mt-2 w-72 bg-white shadow-2xl border-t-4 border-accent opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="py-2">
+                  <a href="/servicios/transporte-maritimo/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors border-b border-slate-100">
+                    <i class="fa-solid fa-ship mr-3 text-primary"></i>Transporte Marítimo
+                  </a>
+                  <a href="/servicios/transporte-aereo/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors border-b border-slate-100">
+                    <i class="fa-solid fa-plane mr-3 text-primary"></i>Transporte Aéreo
+                  </a>
+                  <a href="/servicios/transporte-terrestre/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors border-b border-slate-100">
+                    <i class="fa-solid fa-truck mr-3 text-primary"></i>Transporte Terrestre
+                  </a>
+                  <a href="/servicios/agenciamiento-aduanero/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+                    <i class="fa-solid fa-gavel mr-3 text-primary"></i>Agenciamiento Aduanero
+                  </a>
+                </div>
+                <div class="border-t border-slate-100 py-2 px-6 bg-slate-50">
+                  <a href="/servicios" class="text-xs font-black uppercase tracking-widest text-accent hover:text-primary transition-colors">
+                    Ver todos <i class="fa-solid fa-arrow-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <a 
+              href="/contacto"
+              class={`font-bold text-sm uppercase tracking-wider transition-colors pb-1 border-b-2 ${
+                currentPath === '/contacto' 
+                  ? 'text-primary border-accent' 
+                  : 'text-slate-600 border-transparent hover:text-accent hover:border-accent'
+              }`}
+            >
+              Contáctanos
+            </a>
+            <a 
+              href="/contacto"
+              class="bg-primary text-white px-8 py-3 font-bold text-xs uppercase tracking-widest hover:bg-accent transition-all shadow-xl"
+            >
+              Cotizar Ahora
             </a>
           </div>
           
           <!-- Mobile Menu Button -->
           <button 
             id="mobile-menu-btn"
-            class="md:hidden p-2 text-gray-600 hover:text-gray-900"
+            class="md:hidden p-2 text-primary hover:text-accent transition-colors"
             aria-label="Menu"
           >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+            <i class="fa-solid fa-bars text-2xl"></i>
           </button>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4">
-          <nav class="flex flex-col gap-2">
+        <div id="mobile-menu" class="hidden md:hidden pb-6 border-t border-slate-100">
+          <nav class="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (
               <a 
-                href={link.href} 
-                class="px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg"
+                href={link.href}
+                class="text-slate-600 hover:text-accent font-bold text-sm uppercase tracking-wider transition-colors py-2"
               >
                 {link.label}
               </a>
             ))}
             <a 
-              href="/contacto" 
-              class="mt-2 mx-4 px-4 py-2 bg-brand-600 text-white text-center font-medium rounded-lg"
+              href="/contacto"
+              class="bg-accent text-white px-8 py-4 font-bold text-xs uppercase tracking-widest text-center hover:bg-primary transition-all mt-2"
             >
-              Cotizar ahora
+              Cotizar Ahora
             </a>
           </nav>
         </div>
       </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <slot />
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer class="bg-slate-950 pt-24 pb-12 text-slate-400 border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <!-- Brand -->
           <div>
-            <div class="flex items-center gap-2 mb-4">
-              <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center">
-                <span class="text-white font-bold text-xl">S</span>
-              </div>
-              <span class="font-bold text-xl">Serviworld</span>
+            <div class="mb-8">
+              <img 
+                src="/logo-new.png" 
+                alt="Serviworld Logistics" 
+                class="h-12 w-auto object-contain brightness-0 invert"
+              />
             </div>
-            <p class="text-gray-400 mb-4">
-              Soluciones logísticas integrales con cobertura global. Conectamos tu negocio con el mundo.
+            <p class="leading-relaxed mb-8 font-light">
+              Soluciones de alto nivel para optimizar la cadena de suministro global. Expertos en cumplimiento y eficiencia.
             </p>
-            <div class="flex gap-4">
-              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
-                <span>📘</span>
-              </a>
-              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
-                <span>💼</span>
-              </a>
-              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
-                <span>📸</span>
-              </a>
+            <div class="flex space-x-5">
+              <a class="text-lg hover:text-accent transition-colors" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a class="text-lg hover:text-accent transition-colors" href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a class="text-lg hover:text-accent transition-colors" href="#"><i class="fa-brands fa-facebook-f"></i></a>
             </div>
           </div>
           
-          <!-- Quick Links -->
+          <!-- Divisiones -->
           <div>
-            <h3 class="font-semibold text-lg mb-4">Enlaces Rápidos</h3>
-            <ul class="space-y-2">
-              <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-              <li><a href="/servicios" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
-              <li><a href="/nosotros" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
-              <li><a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="/contacto" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
+            <h4 class="text-white font-black mb-8 uppercase text-sm tracking-[0.2em]">Divisiones</h4>
+            <ul class="space-y-4 font-light">
+              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Marítimo</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Aéreo</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios">Distribución Terrestre</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios">Consultoría Aduanera</a></li>
             </ul>
           </div>
           
-          <!-- Services -->
+          <!-- Oficinas -->
           <div>
-            <h3 class="font-semibold text-lg mb-4">Servicios</h3>
-            <ul class="space-y-2">
-              <li><a href="/servicios" class="text-gray-400 hover:text-white transition-colors">Transporte Aéreo</a></li>
-              <li><a href="/servicios" class="text-gray-400 hover:text-white transition-colors">Transporte Marítimo</a></li>
-              <li><a href="/servicios" class="text-gray-400 hover:text-white transition-colors">Transporte Terrestre</a></li>
-              <li><a href="/servicios" class="text-gray-400 hover:text-white transition-colors">Almacenamiento</a></li>
+            <h4 class="text-white font-black mb-8 uppercase text-sm tracking-[0.2em]">Oficinas</h4>
+            <ul class="space-y-6 font-light">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot text-accent mr-4 mt-1"></i>
+                <span>Bogotá: Calle 125 No. 99 - 34</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot text-accent mr-4 mt-1"></i>
+                <span>Medellín: Calle 18 No. 35 - 69</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone text-accent mr-4 mt-1"></i>
+                <span>+57 321 755 9490</span>
+              </li>
             </ul>
           </div>
           
-          <!-- Contact -->
+          <!-- Newsletter -->
           <div>
-            <h3 class="font-semibold text-lg mb-4">Contacto</h3>
-            <ul class="space-y-3 text-gray-400">
-              <li class="flex items-start gap-3">
-                <span>📍</span>
-                <span>123 Logistics Blvd, Miami, FL 33131</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span>📞</span>
-                <span>+1 (234) 567-890</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span>✉️</span>
-                <span>info@serviworldlogistics.com</span>
-              </li>
-            </ul>
+            <h4 class="text-white font-black mb-8 uppercase text-sm tracking-[0.2em]">Newsletter</h4>
+            <p class="mb-6 font-light">Reportes semanales sobre el estado de puertos y logística global.</p>
+            <form class="flex" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+              <input 
+                type="email" 
+                placeholder="Su email corporativo" 
+                class="w-full bg-slate-900 border-0 py-4 px-6 text-white focus:ring-2 focus:ring-accent font-light outline-none"
+                required
+              />
+              <button type="submit" class="bg-accent text-white px-6 hover:bg-white hover:text-primary transition-all">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
           </div>
         </div>
         
-        <!-- Bottom -->
-        <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Serviworld Logistics. Todos los derechos reservados.
-          </p>
-          <div class="flex gap-6 text-sm text-gray-500">
-            <a href="#" class="hover:text-white transition-colors">Privacidad</a>
-            <a href="#" class="hover:text-white transition-colors">Términos</a>
-            <a href="#" class="hover:text-white transition-colors">Cookies</a>
+        <div class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest font-black">
+          <p>© 2024 Serviworld Logistics. All rights reserved.</p>
+          <div class="flex space-x-10 mt-6 md:mt-0">
+            <a class="hover:text-white transition-colors" href="/legal">Legal</a>
+            <a class="hover:text-white transition-colors" href="/privacidad">Privacidad</a>
+            <a class="hover:text-white transition-colors" href="/cookies">Cookies</a>
           </div>
         </div>
       </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a 
+      href="https://wa.me/573217559490" 
+      target="_blank"
+      class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center text-3xl"
+      aria-label="WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Mobile Menu Script -->
     <script>

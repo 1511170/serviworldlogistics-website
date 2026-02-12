@@ -1,0 +1,81 @@
+# Sveltia CMS Configuration
+# Serviworld Logistics - Panel de Administración
+
+backend:
+  name: github
+  repo: 1511170/serviworldlogistics.com
+  branch: main
+  base_url: https://swl-auth.camilocuadros.workers.dev
+  auth_endpoint: auth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  # Blog Posts
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Extracto", name: "excerpt", widget: "text" }
+      - { label: "Fecha", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Autor", name: "author", widget: "string" }
+      - { label: "Rol del Autor", name: "authorRole", widget: "string" }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Tendencias", "Consejos", "Guías", "Casos de Éxito", "Noticias"] }
+      - { label: "Tiempo de Lectura", name: "readTime", widget: "string" }
+      - { label: "Imagen Destacada", name: "featuredImage", widget: "image", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  # Testimonios
+  - name: "testimonials"
+    label: "Testimonios"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "author", widget: "string" }
+      - { label: "Empresa", name: "company", widget: "string" }
+      - { label: "Cargo", name: "position", widget: "string", required: false }
+      - { label: "Testimonio", name: "quote", widget: "text" }
+      - { label: "Calificación", name: "rating", widget: "select", options: [1, 2, 3, 4, 5], default: 5 }
+      - { label: "Foto", name: "avatar", widget: "image", required: false }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Aéreo", "Marítimo", "Terrestre", "Almacenamiento", "General"], required: false }
+
+  # Páginas Estáticas
+  - name: "pages"
+    label: "Páginas"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Descripción SEO", name: "description", widget: "text" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  # Servicios
+  - name: "services"
+    label: "Servicios"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Ícono", name: "icon", widget: "string", hint: "Emoji o clase de icono" }
+      - { label: "Descripción Corta", name: "shortDesc", widget: "string" }
+      - { label: "Descripción Completa", name: "fullDesc", widget: "text" }
+      - { label: "Características", name: "features", widget: "list", field: { label: "Característica", name: "feature", widget: "string" } }
+      - { label: "Imagen", name: "image", widget: "image", required: false }
+      - { label: "Orden", name: "order", widget: "number", value_type: "int", default: 0 }
+
+# Config de editor
+editor:
+  preview: true
+
+# Localización
+locale: 'es'

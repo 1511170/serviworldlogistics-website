@@ -46,8 +46,8 @@ export default {
     enabled: true,
     subdomain: 'swl.kinto.info',
     hidden: true,  // CMS accesible solo por URL directa
-    githubRepo: 'kinto-cms/serviworldlogistics-content',
-    authEndpoint: 'https://swl-auth.kinto.workers.dev'
+    githubRepo: '1511170/serviworldlogistics.com',
+    authEndpoint: 'https://swl-auth.camilocuadros.workers.dev'
   },
   build: {
     output: 'static',

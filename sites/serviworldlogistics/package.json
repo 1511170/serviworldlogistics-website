@@ -11,12 +11,16 @@
     "skill:remove": "node scripts/skill-remove.js"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
     "@kinto/core": "file:../../core",
     "@tailwindcss/postcss": "^4.1.18",
-    "astro": "^5.0.0"
+    "astro": "^5.0.0",
+    "gsap": "^3.14.2",
+    "puppeteer": "^24.37.2"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",
+    "http-server": "^14.1.1",
     "tailwindcss": "^4.0.0"
   }
 }

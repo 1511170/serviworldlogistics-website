@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 import siteConfig from '../../../config/site.config.ts';
 
 // Posts de ejemplo (en producción vendrían del CMS)
@@ -40,6 +41,15 @@ const categories = ["Todos", "Tendencias", "Consejos", "Guías", "Casos de Éxit
   title={`Blog - ${siteConfig.site.name}`} 
   description="Artículos, noticias y consejos sobre logística internacional, comercio exterior y optimización de cadenas de suministro."
 >
+  <SchemaOrg
+    slot="head"
+    type={['BreadcrumbList']}
+    breadcrumbs={[
+      { name: 'Inicio', url: '/' },
+      { name: 'Blog', url: '/blog' }
+    ]}
+  />
+
   <main>
     <!-- Hero -->
     <section class="bg-gradient-to-br from-brand-900 to-brand-700 text-white py-20">

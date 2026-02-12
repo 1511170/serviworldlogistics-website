@@ -8,13 +8,21 @@
 - **Sistema**: KINTO CMS - Generador de sitios estáticos con arquitectura de skills
 - **Stack**: Astro 5 + Tailwind 4 + Sveltia CMS
 - **Sitio activo**: `sites/serviworldlogistics/` (empresa de logística)
-- **Estado**: Core limpio, sin skills instaladas aún
+- **Estado**: Core limpio, skills configuradas
+- **Túneles Cloudflare**: ✅ Producción (serviworldlogistics.com) + Desarrollo (swl.1511170.xyz)
 
 ### Tu Misión (Si eliges aceptarla)
 Generar el sitio web completo para Serviworld Logistics:
 1. Instalar skills necesarias
 2. Crear páginas: Home, Servicios, Nosotros, Blog, Contacto
 3. Configurar CMS para que el cliente edite contenido
+
+### 📡 Túneles Activos
+El proyecto tiene túneles de Cloudflare configurados:
+- **Producción:** https://serviworldlogistics.com
+- **Desarrollo:** https://swl.1511170.xyz
+
+Ver: `SESSION-LOG-cloudflare-tunnel.md` para detalles completos.
 
 ---
 
@@ -65,6 +73,8 @@ kinto-cms/
 - Guía sistema completa: `KINTO.md`
 - Brief del proyecto: `sites/serviworldlogistics/KINTO.md`
 - Arquitectura: `STRUCTURE.md`
+- **Log de sesión (Cloudflare):** `SESSION-LOG-cloudflare-tunnel.md`
+- **Skill cloudflare-tunnel:** `skills/community/cloudflare-tunnel/SKILL.md`
 
 ---
 

@@ -5,21 +5,25 @@ export default {
   ...coreConfig,
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-    // Skills activas añaden sus paths aquí
   ],
   theme: {
     extend: {
-      // Colores de marca Serviworld Logistics
       colors: {
-        brand: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          900: '#0c4a6e',
-        }
-      }
+        primary: {
+          DEFAULT: '#1a365d',
+          light: '#2c5282',
+          dark: '#0f172a',
+        },
+        accent: {
+          DEFAULT: '#e11d48',
+          light: '#f43f5e',
+          dark: '#be123c',
+        },
+      },
+      fontFamily: {
+        display: ['"Roboto Condensed"', 'sans-serif'],
+        body: ['Roboto', 'sans-serif'],
+      },
     },
   },
-}
+};

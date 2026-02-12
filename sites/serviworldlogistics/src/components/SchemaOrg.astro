@@ -1,0 +1,267 @@
+---
+/**
+ * SchemaOrg.astro - JSON-LD Structured Data para SEO + AEO
+ *
+ * Schemas disponibles: Organization, WebSite, LocalBusiness, Service,
+ * BreadcrumbList, FAQPage, BlogPosting, AboutPage, ContactPage
+ *
+ * Uso: <SchemaOrg slot="head" type="WebSite" />
+ *      <SchemaOrg slot="head" type="Service" data={{...}} />
+ */
+import siteConfig from '../../config/site.config.ts';
+
+type SchemaType =
+  | 'Organization'
+  | 'WebSite'
+  | 'LocalBusiness'
+  | 'Service'
+  | 'BreadcrumbList'
+  | 'FAQPage'
+  | 'BlogPosting'
+  | 'AboutPage'
+  | 'ContactPage';
+
+interface Props {
+  type: SchemaType | SchemaType[];
+  data?: Record<string, any>;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  faqs?: Array<{ q: string; a: string }>;
+}
+
+const { type, data = {}, breadcrumbs = [], faqs = [] } = Astro.props;
+
+const siteUrl = `https://${siteConfig.site.domain}`;
+const types = Array.isArray(type) ? type : [type];
+
+// -- Schema builders --
+
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  "name": "Serviworld Logistics",
+  "alternateName": "Serviworld Logistics S.A.S.",
+  "url": siteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/logo-new.png`
+  },
+  "description": "Empresa colombiana de logística integral y comercio internacional con más de 15 años de experiencia en transporte marítimo, aéreo, terrestre y agenciamiento aduanero.",
+  "foundingDate": "2008",
+  "areaServed": [
+    { "@type": "Country", "name": "Colombia" },
+    { "@type": "Continent", "name": "América Latina" },
+    { "@type": "Place", "name": "Global" }
+  ],
+  "knowsAbout": [
+    "Transporte marítimo internacional",
+    "Transporte aéreo de carga",
+    "Transporte terrestre de carga",
+    "Agenciamiento aduanero",
+    "Logística de comercio exterior",
+    "Cadena de suministro",
+    "Carga refrigerada",
+    "Carga de proyectos"
+  ],
+  "telephone": "+57-321-755-9490",
+  "email": "comercial@serviworldlogistics.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cll 125 No. 99 - 34",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Cundinamarca",
+    "addressCountry": "CO"
+  },
+  "sameAs": [],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+57-321-755-9490",
+      "contactType": "sales",
+      "availableLanguage": ["Spanish", "English"],
+      "areaServed": "CO"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+57-1-390-6723",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    }
+  ]
+};
+
+const webSiteSchema = {
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": siteUrl,
+  "name": "Serviworld Logistics",
+  "description": siteConfig.site.description,
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "inLanguage": "es-CO",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}/blog/?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const localBusinessSchema = {
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}/#localbusiness`,
+  "name": "Serviworld Logistics",
+  "image": `${siteUrl}/logo-new.png`,
+  "url": siteUrl,
+  "telephone": "+57-321-755-9490",
+  "email": "comercial@serviworldlogistics.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cll 125 No. 99 - 34",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Cundinamarca",
+    "postalCode": "111121",
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 4.7110,
+    "longitude": -74.0721
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "hasMap": "https://maps.google.com/?q=Cll+125+No+99-34+Bogota+Colombia"
+};
+
+function buildServiceSchema(serviceData: Record<string, any>) {
+  return {
+    "@type": "Service",
+    "provider": { "@id": `${siteUrl}/#organization` },
+    "areaServed": serviceData.areaServed || "Global",
+    "name": serviceData.name || "",
+    "description": serviceData.description || "",
+    "serviceType": serviceData.serviceType || serviceData.name || "",
+    ...(serviceData.url && { "url": serviceData.url }),
+    ...(serviceData.image && { "image": serviceData.image }),
+    ...(serviceData.offers && {
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        ...serviceData.offers
+      }
+    })
+  };
+}
+
+function buildBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": item.name,
+      "item": item.url.startsWith('http') ? item.url : `${siteUrl}${item.url}`
+    }))
+  };
+}
+
+function buildFAQSchema(items: Array<{ q: string; a: string }>) {
+  return {
+    "@type": "FAQPage",
+    "mainEntity": items.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  };
+}
+
+function buildBlogPostingSchema(postData: Record<string, any>) {
+  return {
+    "@type": "BlogPosting",
+    "headline": postData.title || "",
+    "description": postData.description || postData.excerpt || "",
+    "author": {
+      "@type": "Person",
+      "name": postData.author || "Serviworld Logistics"
+    },
+    "publisher": { "@id": `${siteUrl}/#organization` },
+    "datePublished": postData.datePublished || "",
+    "dateModified": postData.dateModified || postData.datePublished || "",
+    "mainEntityOfPage": postData.url || Astro.url.href,
+    "inLanguage": "es-CO",
+    ...(postData.image && {
+      "image": {
+        "@type": "ImageObject",
+        "url": postData.image
+      }
+    })
+  };
+}
+
+const aboutPageSchema = {
+  "@type": "AboutPage",
+  "mainEntity": { "@id": `${siteUrl}/#organization` },
+  "url": `${siteUrl}/nosotros`,
+  "name": "Sobre Serviworld Logistics",
+  "description": "Grupo logístico colombiano con Agente de Carga Internacional y Agencia de Aduanas G5. Más de 15 años de experiencia en comercio exterior."
+};
+
+const contactPageSchema = {
+  "@type": "ContactPage",
+  "mainEntity": { "@id": `${siteUrl}/#organization` },
+  "url": `${siteUrl}/contacto`,
+  "name": "Contacto - Serviworld Logistics",
+  "description": "Contáctenos para cotizaciones de transporte marítimo, aéreo, terrestre y agenciamiento aduanero. Oficinas en Bogotá, Medellín, Cartagena y Barranquilla."
+};
+
+// -- Build final graph --
+const graph: any[] = [];
+
+for (const t of types) {
+  switch (t) {
+    case 'Organization':
+      graph.push(organizationSchema);
+      break;
+    case 'WebSite':
+      graph.push(webSiteSchema);
+      break;
+    case 'LocalBusiness':
+      graph.push(localBusinessSchema);
+      break;
+    case 'Service':
+      graph.push(buildServiceSchema(data));
+      break;
+    case 'BreadcrumbList':
+      if (breadcrumbs.length > 0) graph.push(buildBreadcrumbSchema(breadcrumbs));
+      break;
+    case 'FAQPage':
+      if (faqs.length > 0) graph.push(buildFAQSchema(faqs));
+      break;
+    case 'BlogPosting':
+      graph.push(buildBlogPostingSchema(data));
+      break;
+    case 'AboutPage':
+      graph.push(aboutPageSchema);
+      break;
+    case 'ContactPage':
+      graph.push(contactPageSchema);
+      break;
+  }
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": graph
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

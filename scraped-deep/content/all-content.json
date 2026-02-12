@@ -1,0 +1,188 @@
+{
+  "site": {
+    "url": "https://serviworldlogistics.com",
+    "scrapedAt": "2026-02-10T12:44:33.897Z"
+  },
+  "home": {
+    "hero": {
+      "title": "",
+      "subtitle": "",
+      "cta": ""
+    },
+    "about": {
+      "headline": "",
+      "description": ""
+    },
+    "features": [],
+    "services": [],
+    "testimonials": [],
+    "stats": []
+  },
+  "about": {
+    "headline": "Nosotros",
+    "mission": "",
+    "vision": "",
+    "history": "",
+    "team": [],
+    "values": []
+  },
+  "services": {},
+  "servicePages": [
+    {
+      "url": "https://serviworldlogistics.com/services/",
+      "title": "Servicios – Serviworld Logistics",
+      "heroTitle": "Servicios",
+      "heroSubtitle": "Nuestra experiencia en el manejo de importaciones y exportaciones de mercancías en todas sus modalidades, nos ha permitido desarrollar soluciones con alto nivel de eficiencia. Nos dedicamos a proveer a nuestros clientes un amplio portafolio de servicios de alta calidad por vía aérea, marítima o terrestre desde y hacia Colombia, los cuales son respaldados con la extensa red de agentes internacionales que posee la compañía a nivel global; permitiendo ofrecerle a nuestros clientes las mejores alternativas en tiempos y costos logísticos..",
+      "description": "Nuestra experiencia en el manejo de importaciones y exportaciones de mercancías en todas sus modalidades, nos ha permitido desarrollar soluciones con alto nivel de eficiencia. Nos dedicamos a proveer a nuestros clientes un amplio portafolio de servicios de alta calidad por vía aérea, marítima o terrestre desde y hacia Colombia, los cuales son respaldados con la extensa red de agentes internacionales que posee la compañía a nivel global; permitiendo ofrecerle a nuestros clientes las mejores alternativas en tiempos y costos logísticos..\n\nContamos con experiencia en la modalidad LCL para las cargas que no alcanzan a ocupar un contenedor completo\n\nDependiendo de la naturaleza y necesidad de tu carga operamos contenedores especiales: Reefer, Flat Racks, Open Top, Reforzados; y cuando se requiera trabajamos la modalidad Break Bulk\n\nManejamos una red de Agentes Internacionales que nos permiten ofrecer un amplio servicio de carga aérea\n\nNuestra experiencia en productos perecederos con flores, todo tipo de frutas y alimentos, nos permite brindar un servicio eficiente con el nivel de temperaturas y cuidados especiales que este producto delicado requiere\n\nBrindamos transporte de carga terrestre con los mejores estándares de seguridad, cumplimiento y calidad\n\nContamos con más de 25 años de experiencia asesorando a importadores y exportadores en sus procesos aduaneros, cumpliendo a cabalidad la normatividad bajo altos estándares de seguridad y calidad\n\n",
+      "features": [
+        "Operación Áerea",
+        "Operación Marítima",
+        "Transporte Terrestre",
+        "Servicio Aduanero",
+        "Contáctanos"
+      ],
+      "process": [],
+      "images": [
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_31logo-color-web.png",
+          "alt": "rsz_31logo-color-web",
+          "title": ""
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_31logo-color-web.png",
+          "alt": "rsz_31logo-color-web",
+          "title": ""
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_31logo-color-web.png",
+          "alt": "rsz_31logo-color-web",
+          "title": ""
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_31logo-color-web.png",
+          "alt": "rsz_31logo-color-web",
+          "title": ""
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_cargo-cargo-containers-containers-9069821-min-1.jpg",
+          "alt": "rsz_cargo-cargo-containers-containers-906982[1]-min (1)",
+          "title": "rsz_cargo-cargo-containers-containers-906982[1]-min (1)"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic22.png",
+          "alt": "home_logistics2_pic22",
+          "title": "home_logistics2_pic22"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_icon10.jpg",
+          "alt": "home_logistics2_icon10",
+          "title": "home_logistics2_icon10"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic21.png",
+          "alt": "home_logistics2_pic21",
+          "title": "home_logistics2_pic21"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_icon9.jpg",
+          "alt": "home_logistics2_icon9",
+          "title": "home_logistics2_icon9"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic20.png",
+          "alt": "home_logistics2_pic20",
+          "title": "home_logistics2_pic20"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_adult-agent-banking-6843871-min-1.jpg",
+          "alt": "rsz_adult-agent-banking-684387[1]-min (1)",
+          "title": "rsz_adult-agent-banking-684387[1]-min (1)"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic23.png",
+          "alt": "home_logistics2_pic23",
+          "title": "home_logistics2_pic23"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_logazo.png",
+          "alt": "rsz_logazo",
+          "title": "rsz_logazo"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/plugins/social-media-widget/images/default/64/facebook.png",
+          "alt": " Facebook",
+          "title": "Facebook"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/plugins/social-media-widget/images/default/64/instagram.png",
+          "alt": " Instagram",
+          "title": "Instragram"
+        },
+        {
+          "src": "https://serviworldlogistics.com/wp-content/plugins/social-media-widget/images/default/64/email.png",
+          "alt": " E-mail",
+          "title": "E-mail"
+        }
+      ],
+      "faqs": []
+    }
+  ],
+  "contact": {},
+  "images": [
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_31logo-color-web.png",
+      "local": "service_img_0.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_cargo-cargo-containers-containers-9069821-min-1.jpg",
+      "local": "service_img_1.jpg"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic22.png",
+      "local": "service_img_2.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_icon10.jpg",
+      "local": "service_img_3.jpg"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic21.png",
+      "local": "service_img_4.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_icon9.jpg",
+      "local": "service_img_5.jpg"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic20.png",
+      "local": "service_img_6.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_adult-agent-banking-6843871-min-1.jpg",
+      "local": "service_img_7.jpg"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2018/09/home_logistics2_pic23.png",
+      "local": "service_img_8.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_logazo.png",
+      "local": "service_img_9.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/plugins/social-media-widget/images/default/64/facebook.png",
+      "local": "service_img_10.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/plugins/social-media-widget/images/default/64/instagram.png",
+      "local": "service_img_11.png"
+    },
+    {
+      "original": "https://serviworldlogistics.com/wp-content/plugins/social-media-widget/images/default/64/email.png",
+      "local": "service_img_12.png"
+    }
+  ],
+  "testimonials": [],
+  "team": [],
+  "certifications": []
+}
