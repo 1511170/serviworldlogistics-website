@@ -1,3 +1,9 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 @import "tailwindcss";
 
 /* Theme configuration for Tailwind 4 - Serviworld Editorial */
@@ -6,15 +12,15 @@
   --color-primary: #1a365d;
   --color-primary-light: #2c5282;
   --color-primary-dark: #0f172a;
-  
+
   --color-accent: #e11d48;
   --color-accent-light: #f43f5e;
   --color-accent-dark: #be123c;
-  
+
   /* Background colors */
   --color-background-light: #ffffff;
   --color-background-dark: #0f172a;
-  
+
   /* Gray scale */
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
@@ -28,12 +34,6 @@
   --color-slate-900: #0f172a;
   --color-slate-950: #020617;
 }
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
-
-/* Font Awesome */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 /* Base typography */
 .font-display {
