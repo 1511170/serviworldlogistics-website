@@ -1,5 +1,5 @@
 # Serviworld Logistics
-> Serviworld Logistics es una empresa colombiana de logística integral y comercio internacional fundada en 2008 con sede en Bogotá, Colombia. Ofrece servicios de transporte marítimo, aéreo, terrestre y agenciamiento aduanero con cobertura en más de 50 países.
+> Serviworld Logistics es una empresa colombiana de logística integral y comercio internacional fundada en 2008 con sede en Bogotá, Colombia. Ofrece servicios de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero con cobertura en más de 50 países.
 
 ## Información de la empresa
 - Nombre legal: Serviworld Logistics S.A.S.
@@ -10,12 +10,12 @@
 - Cobertura: Más de 50 países en 5 continentes
 - Estructura: Grupo logístico con Agente de Carga Internacional y Agencia de Aduanas G5
 - Sede principal: Cll 125 No. 99 - 34, Bogotá, Colombia
-- Teléfono: +57 321 755 9490
+- Teléfono: +57 311 403 3806
 - Email: comercial@serviworldlogistics.com
 - Sitio web: https://serviworldlogistics.com
 
 ## ¿Qué hace Serviworld Logistics?
-Serviworld Logistics es un operador logístico integral especializado en comercio exterior colombiano. Conecta empresas con mercados globales a través de cuatro líneas de servicio: transporte marítimo internacional (FCL y LCL), transporte aéreo de carga, transporte terrestre nacional, y agenciamiento aduanero. La empresa se distingue por su experiencia en carga refrigerada, productos perecederos y carga de proyectos (sobredimensionada).
+Serviworld Logistics es un operador logístico integral especializado en comercio exterior colombiano. Conecta empresas con mercados globales a través de cuatro líneas de servicio: transporte marítimo internacional (FCL y LCL), transporte aéreo internacional de carga, transporte terrestre nacional, y agenciamiento aduanero. La empresa se distingue por su experiencia en carga refrigerada, productos perecederos y carga de proyectos (sobredimensionada).
 
 ## Servicios principales
 
@@ -23,8 +23,8 @@ Serviworld Logistics es un operador logístico integral especializado en comerci
 Serviworld Logistics opera en los principales puertos del mundo ofreciendo servicios de carga consolidada (LCL), contenedores completos (FCL), contenedores especiales (Reefer, Flat Racks, Open Top), carga de proyectos, y carga general y refrigerada. La empresa cuenta con alianzas con las principales navieras globales.
 URL: https://serviworldlogistics.com/servicios/transporte-maritimo/
 
-### Transporte Aéreo Internacional
-Con una red de agentes internacionales, Serviworld Logistics ofrece servicios de carga aérea con tiempos de tránsito competitivos. Incluye carga express y urgente, manejo de perecederos, control de temperatura, y cobertura global a través de las principales aerolíneas de carga.
+### Transporte Aéreo Internacional de Carga
+Con una red de agentes internacionales, Serviworld Logistics ofrece servicios de carga aérea internacional con tiempos de tránsito competitivos. Incluye carga express y urgente, manejo de perecederos, control de temperatura, y cobertura global a través de las principales aerolíneas de carga.
 URL: https://serviworldlogistics.com/servicios/transporte-aereo/
 
 ### Transporte Terrestre Nacional
@@ -44,7 +44,7 @@ URL: https://serviworldlogistics.com/servicios/agenciamiento-aduanero/
 - Bogotá (sede principal): Cll 125 No. 99 - 34 | Tel: (1) 390 6723
 - Medellín: Calle 18 No. 35 - 69 | Tel: (4) 605 0383
 - Cartagena: Centro Histórico | Tel: (5) 694 4321
-- Barranquilla: Zona Industrial | Tel: +57 321 755 9490
+- Barranquilla: Zona Industrial | Tel: +57 311 403 3806
 
 ## Preguntas frecuentes
 

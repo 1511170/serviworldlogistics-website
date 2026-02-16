@@ -4,9 +4,9 @@ import SchemaOrg from '../../components/SchemaOrg.astro';
 
 const service = {
   badge: "Servicio Especializado",
-  breadcrumb: "Transporte Marítimo",
+  breadcrumb: "Transporte Marítimo Internacional",
   title: "TRANSPORTE DE CARGA",
-  titleAccent: "MARÍTIMA",
+  titleAccent: "MARÍTIMA INTERNACIONAL",
   subtitle: "Operamos en los diferentes puertos del mundo con servicios logísticos para todo tipo de industria. Fletes competitivos en contenedores FCL y carga consolidada LCL.",
   
   intro: {
@@ -37,8 +37,8 @@ const service = {
     { icon: "fa-ship", name: "Operadores OEA" }
   ],
   
-  image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80",
-  sideImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80"
+  image: "/images/servicios/transporte-maritimo-internacional-colombia.jpg",
+  sideImage: "/images/servicios/contenedores-carga-maritima-colombia.jpg"
 };
 ---
 
@@ -49,7 +49,7 @@ const service = {
     breadcrumbs={[
       { name: 'Inicio', url: '/' },
       { name: 'Servicios', url: '/servicios' },
-      { name: 'Transporte Marítimo', url: '/servicios/transporte-maritimo/' }
+      { name: 'Transporte Marítimo Internacional', url: '/servicios/transporte-maritimo/' }
     ]}
     data={{
       name: 'Transporte de Carga Marítima Internacional',
@@ -59,7 +59,7 @@ const service = {
     }}
   />
   <section class="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
-    <img alt="Transporte Marítimo" class="absolute inset-0 w-full h-full object-cover" src={service.image} />
+    <img alt="Servicio de transporte marítimo internacional de carga FCL y LCL - Serviworld Logistics Colombia" class="absolute inset-0 w-full h-full object-cover" src={service.image} />
     <div class="absolute inset-0 hero-gradient"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-white">
       <div class="max-w-4xl">
@@ -87,11 +87,11 @@ const service = {
               {service.features.map((feature) => <li class="service-list-item text-slate-700 font-medium">{feature}</li>)}
             </ul>
           </div>
-          <a href="/contacto" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 font-black uppercase tracking-widest text-xs hover:bg-accent transition-all shadow-lg"><i class="fa-solid fa-ship mr-2 text-lg"></i> Cotizar Flete Marítimo</a>
+          <a href="/contacto" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 font-black uppercase tracking-widest text-xs hover:bg-accent transition-all shadow-lg"><i class="fa-solid fa-ship mr-2 text-lg"></i> Cotizar Flete Marítimo Internacional</a>
         </div>
         <div class="lg:col-span-5 relative">
           <div class="relative z-10">
-            <img alt="Contenedores" class="w-full h-auto shadow-2xl rounded-sm mb-8" src={service.sideImage} />
+            <img alt="Contenedores de carga marítima internacional en puerto colombiano" class="w-full h-auto shadow-2xl rounded-sm mb-8" src={service.sideImage} />
           </div>
           <div class="bg-white p-8 shadow-xl border-t-4 border-primary relative z-20 mt-[-50px] mx-4 lg:mx-0 lg:ml-[-50px]">
             <div class="flex items-center mb-6">

@@ -15,7 +15,7 @@ const services = [
     title: "Transporte de Carga Marítima Internacional",
     description: "Operamos en los diferentes puertos del mundo con servicios logísticos para todo tipo de industria, asegurando la integridad de su mercancía desde el puerto de origen hasta su destino final.",
     features: ["Consolidados LCL / FCL", "Carga Contenerizada", "Carga de Proyectos", "Carga General y Refrigerada"],
-    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80",
+    image: "/images/servicios/transporte-maritimo-internacional-colombia.jpg",
     link: "/servicios/transporte-maritimo/",
     reverse: false
   },
@@ -24,7 +24,7 @@ const services = [
     title: "Transporte de Carga Aérea Internacional",
     description: "Manejamos una red de Agentes Internacionales que nos permiten ofrecer un amplio portafolio de servicios de carga aérea con los tiempos de tránsito más competitivos.",
     features: ["Carga Express / Urgente", "Manejo de Perecederos", "Control de Temperatura", "Red Global de Agentes"],
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80",
+    image: "/images/servicios/transporte-aereo-internacional-colombia.jpg",
     link: "/servicios/transporte-aereo/",
     reverse: true
   },
@@ -33,7 +33,7 @@ const services = [
     title: "Transporte de Carga Terrestre",
     description: "Brindamos transporte de carga terrestre con los mejores estándares de seguridad, cumplimiento y calidad, garantizando la trazabilidad de sus despachos a nivel nacional.",
     features: ["Cargas Consolidadas", "Distribución Nacional", "Almacenamiento y Racks", "Carga Extra Dimensionada"],
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80",
+    image: "/images/servicios/transporte-terrestre-carga-colombia.jpg",
     link: "/servicios/transporte-terrestre/",
     reverse: false
   },
@@ -42,14 +42,14 @@ const services = [
     title: "Servicio de Agenciamiento Aduanero",
     description: "Contamos con más de 25 años de experiencia asesorando a importadores y exportadores en sus procesos aduaneros, cumpliendo a cabalidad la normatividad legal vigente.",
     features: ["Trámites VUCE", "Clasificación Arancelaria", "Registros de Importación", "Asesoría Integral en Comercio"],
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+    image: "/images/servicios/agenciamiento-aduanero-colombia.jpg",
     link: "/servicios/agenciamiento-aduanero/",
     reverse: true
   }
 ];
 ---
 
-<Layout title="Servicios de Logística Internacional - Serviworld Logistics" description="Servicios de transporte marítimo, aéreo, terrestre y agenciamiento aduanero en Colombia. Cobertura en más de 50 países con 15+ años de experiencia.">
+<Layout title="Servicios de Logística Internacional - Serviworld Logistics" description="Servicios de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero en Colombia. Cobertura en más de 50 países con 15+ años de experiencia.">
   <SchemaOrg
     slot="head"
     type={['BreadcrumbList', 'Service', 'Service', 'Service', 'Service']}
@@ -57,15 +57,15 @@ const services = [
       { name: 'Inicio', url: '/' },
       { name: 'Servicios', url: '/servicios' }
     ]}
-    data={{ name: 'Logística Integral', description: 'Servicios de transporte marítimo, aéreo, terrestre y agenciamiento aduanero', serviceType: 'Freight Transport', url: 'https://serviworldlogistics.com/servicios' }}
+    data={{ name: 'Logística Integral', description: 'Servicios de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero', serviceType: 'Freight Transport', url: 'https://serviworldlogistics.com/servicios' }}
   />
   <!-- Header Section -->
   <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img 
-        alt="Logistics background" 
+        alt="Servicios de logística internacional en Colombia - Serviworld Logistics" 
         class="w-full h-full object-cover opacity-20 grayscale"
-        src="https://serviworldlogistics.com/wp-content/uploads/2019/07/rsz_rsz_dylan-mcleod-728144-unsplash1-1024x347.jpg"
+        src="/images/servicios/transporte-maritimo-internacional-colombia.jpg"
       />
       <div class="absolute inset-0 bg-gradient-to-b from-white/0 via-white/50 to-white"></div>
     </div>
@@ -211,9 +211,9 @@ const services = [
         <div class="relative">
           <div class="aspect-video bg-primary/50 border border-white/20 flex items-center justify-center group overflow-hidden">
             <img 
-              alt="Global Network" 
+              alt="Red global de cobertura logística Serviworld Logistics en más de 50 países" 
               class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-[20s]"
-              src="https://serviworldlogistics.com/wp-content/uploads/2019/08/rsz_cheerful-coffee-colleague-13319711-min.jpg"
+              src="/images/empresa/equipo-logistica-serviworld-colombia.jpg"
             />
             <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
               <i class="fa-solid fa-earth-americas text-6xl text-accent mb-4"></i>
@@ -244,7 +244,7 @@ const services = [
           Hablar con un Experto
         </a>
         <a 
-          href="tel:+573217559490"
+          href="tel:+573114033806"
           class="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-10 py-5 font-black uppercase tracking-widest text-sm hover:bg-primary hover:text-white transition-all"
         >
           <i class="fa-brands fa-whatsapp"></i>

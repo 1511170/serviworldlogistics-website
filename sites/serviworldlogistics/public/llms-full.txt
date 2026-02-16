@@ -1,6 +1,6 @@
 # Serviworld Logistics - Información Completa
 
-> Serviworld Logistics S.A.S. es una empresa colombiana de logística integral y comercio internacional fundada en 2008. Ofrece transporte marítimo, aéreo, terrestre y agenciamiento aduanero con cobertura en más de 50 países. Sede principal en Bogotá, Colombia.
+> Serviworld Logistics S.A.S. es una empresa colombiana de logística integral y comercio internacional fundada en 2008. Ofrece transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero con cobertura en más de 50 países. Sede principal en Bogotá, Colombia.
 
 ## Entidad: Serviworld Logistics
 
@@ -14,7 +14,7 @@
 - Certificaciones: BASC, FMC, WCA, OEA
 
 ### Contacto Principal
-- Teléfono: +57 321 755 9490
+- Teléfono: +57 311 403 3806
 - Email comercial: comercial@serviworldlogistics.com
 - Web: https://serviworldlogistics.com
 - Dirección: Cll 125 No. 99 - 34, Bogotá, Cundinamarca, Colombia
@@ -47,12 +47,12 @@ URL: https://serviworldlogistics.com/servicios/transporte-maritimo/
 
 ---
 
-## Servicio 2: Transporte Aéreo Internacional
+## Servicio 2: Transporte Aéreo Internacional de Carga
 
-### ¿Qué es el servicio de transporte aéreo de Serviworld Logistics?
-Serviworld Logistics maneja una red de agentes internacionales que permite ofrecer un amplio portafolio de servicios de carga aérea con los tiempos de tránsito más competitivos del mercado.
+### ¿Qué es el servicio de transporte aéreo internacional de Serviworld Logistics?
+Serviworld Logistics maneja una red de agentes internacionales que permite ofrecer un amplio portafolio de servicios de carga aérea internacional con los tiempos de tránsito más competitivos del mercado.
 
-### Capacidades de carga aérea
+### Capacidades de carga aérea internacional
 - Carga express y urgente
 - Manejo especializado de perecederos
 - Control riguroso de temperatura
@@ -133,7 +133,7 @@ Logística especializada para:
 
 ### Barranquilla
 - Ubicación: Zona Industrial
-- Teléfono: +57 321 755 9490
+- Teléfono: +57 311 403 3806
 - Función: Operaciones portuarias Costa Atlántica
 
 ---

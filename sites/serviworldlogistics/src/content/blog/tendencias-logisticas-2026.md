@@ -7,7 +7,7 @@ author: "Carlos Rodriguez"
 authorRole: "Director de Operaciones"
 category: "Tendencias"
 readTime: "5 min"
-featuredImage: "https://serviworldlogistics.com/wp-content/uploads/2019/08/rsz_logistics-lorry-mountains-93398-min.jpg"
+featuredImage: "/images/servicios/transporte-terrestre-carga-colombia.jpg"
 ---
 
 La industria logística está experimentando una transformación sin precedentes. La digitalización, la sostenibilidad y la resiliencia de la cadena de suministro son los pilares que definirán el éxito en 2026.

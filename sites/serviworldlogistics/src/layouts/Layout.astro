@@ -54,6 +54,15 @@ const currentPath = Astro.url.pathname;
       noindex={noindex}
     />
 
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-XTB8C8RL6R"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XTB8C8RL6R');
+    </script>
+
     <!-- AI/LLM Discovery -->
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Information" />
 
@@ -80,7 +89,7 @@ const currentPath = Astro.url.pathname;
           <a href="/" class="flex items-center space-x-3 group">
             <img 
               src="/logo-new.png" 
-              alt="Serviworld Logistics" 
+              alt="Serviworld Logistics - Empresa de logística internacional en Colombia" 
               class="h-14 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </a>
@@ -126,10 +135,10 @@ const currentPath = Astro.url.pathname;
               <div class="absolute top-full left-0 mt-2 w-72 bg-white shadow-2xl border-t-4 border-accent opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div class="py-2">
                   <a href="/servicios/transporte-maritimo/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors border-b border-slate-100">
-                    <i class="fa-solid fa-ship mr-3 text-primary"></i>Transporte Marítimo
+                    <i class="fa-solid fa-ship mr-3 text-primary"></i>Transporte Marítimo Internacional
                   </a>
                   <a href="/servicios/transporte-aereo/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors border-b border-slate-100">
-                    <i class="fa-solid fa-plane mr-3 text-primary"></i>Transporte Aéreo
+                    <i class="fa-solid fa-plane mr-3 text-primary"></i>Transporte Aéreo Internacional
                   </a>
                   <a href="/servicios/transporte-terrestre/" class="block px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors border-b border-slate-100">
                     <i class="fa-solid fa-truck mr-3 text-primary"></i>Transporte Terrestre
@@ -208,7 +217,7 @@ const currentPath = Astro.url.pathname;
             <div class="mb-8">
               <img 
                 src="/logo-new.png" 
-                alt="Serviworld Logistics" 
+                alt="Serviworld Logistics - Empresa de logística internacional en Colombia" 
                 class="h-12 w-auto object-contain brightness-0 invert"
               />
             </div>
@@ -226,8 +235,8 @@ const currentPath = Astro.url.pathname;
           <div>
             <h4 class="text-white font-black mb-8 uppercase text-sm tracking-[0.2em]">Divisiones</h4>
             <ul class="space-y-4 font-light">
-              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Marítimo</a></li>
-              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Aéreo</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Marítimo Internacional</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Aéreo Internacional</a></li>
               <li><a class="hover:text-accent transition-colors" href="/servicios">Distribución Terrestre</a></li>
               <li><a class="hover:text-accent transition-colors" href="/servicios">Consultoría Aduanera</a></li>
             </ul>
@@ -247,7 +256,7 @@ const currentPath = Astro.url.pathname;
               </li>
               <li class="flex items-start">
                 <i class="fa-solid fa-phone text-accent mr-4 mt-1"></i>
-                <span>+57 321 755 9490</span>
+                <span>+57 311 403 3806</span>
               </li>
             </ul>
           </div>
@@ -271,7 +280,7 @@ const currentPath = Astro.url.pathname;
         </div>
         
         <div class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest font-black">
-          <p>© 2024 Serviworld Logistics. All rights reserved.</p>
+          <p>© 2008-2026 Serviworld Logistics. Todos los derechos reservados.</p>
           <div class="flex space-x-10 mt-6 md:mt-0">
             <a class="hover:text-white transition-colors" href="/legal">Legal</a>
             <a class="hover:text-white transition-colors" href="/privacidad">Privacidad</a>
@@ -283,7 +292,7 @@ const currentPath = Astro.url.pathname;
 
     <!-- WhatsApp Float Button -->
     <a 
-      href="https://wa.me/573217559490" 
+      href="https://wa.me/573114033806" 
       target="_blank"
       class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center text-3xl"
       aria-label="WhatsApp"
