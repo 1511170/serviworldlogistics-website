@@ -7,7 +7,7 @@ author: "Carlos Rodriguez"
 authorRole: "Director de Operaciones"
 category: "Tendencias"
 readTime: "5 min"
-featuredImage: "/images/servicios/transporte-terrestre-carga-colombia.jpg"
+featuredImage: "/images/servicios/transporte-terrestre-carga-colombia.webp"
 ---
 
 La industria logística está experimentando una transformación sin precedentes. La digitalización, la sostenibilidad y la resiliencia de la cadena de suministro son los pilares que definirán el éxito en 2026.
