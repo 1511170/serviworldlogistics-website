@@ -35,10 +35,13 @@ const siteName = siteConfig.site.name;
 const siteUrl = `https://${siteConfig.site.domain}`;
 const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const canonicalUrl = canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`;
+const gsc = siteConfig.seo?.googleSiteVerification;
 ---
 
 <!-- Canonical -->
 <link rel="canonical" href={canonicalUrl} />
+
+{gsc && <meta name="google-site-verification" content={gsc} />}
 
 <!-- Robots -->
 {noindex ? (

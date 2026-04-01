@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import siteConfig from '../../config/site.config.ts';
+
+const telHref = `tel:${siteConfig.contact.phoneE164.replace(/\s/g, "")}`;
 ---
 
 <Layout 
@@ -268,8 +270,8 @@ import siteConfig from '../../config/site.config.ts';
               </li>
               <li class="flex items-center gap-3">
                 <i class="fa-solid fa-phone text-primary"></i>
-                <a href="tel:+573114033806" class="text-primary hover:underline">
-                  +57 311 403 3806
+                <a href={telHref} class="text-primary hover:underline">
+                  {siteConfig.contact.phoneDisplay}
                 </a>
               </li>
             </ul>

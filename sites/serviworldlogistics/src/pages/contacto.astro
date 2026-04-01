@@ -3,36 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
 import siteConfig from '../../config/site.config.ts';
 
-const offices = [
-  {
-    city: "Bogotá",
-    address: "Cll 125 No. 99 - 34",
-    phone: "(1) 390 6723",
-    phoneFull: "+5713906723",
-    icon: "fa-building"
-  },
-  {
-    city: "Medellín",
-    address: "Calle 18 No. 35 - 69",
-    phone: "(4) 605 0383",
-    phoneFull: "+5746050383",
-    icon: "fa-city"
-  },
-  {
-    city: "Cartagena",
-    address: "Centro Histórico",
-    phone: "(5) 694 4321",
-    phoneFull: "+5756944321",
-    icon: "fa-anchor"
-  },
-  {
-    city: "Barranquilla",
-    address: "Zona Industrial",
-    phone: "+57 311 403 3806",
-    phoneFull: "+573114033806",
-    icon: "fa-industry"
-  }
+const { contact, offices, forms } = siteConfig;
+const telHref = `tel:${contact.phoneE164.replace(/\s/g, "")}`;
+const waHref = contact.whatsappDefaultMessage
+  ? `${contact.whatsappUrl}?text=${contact.whatsappDefaultMessage}`
+  : contact.whatsappUrl;
+
+const sedesCards = [
+  { label: "Bogotá", line: offices.lines[0], icon: "fa-building" as const },
+  { label: "Buenaventura", line: offices.lines[1], icon: "fa-anchor" as const },
+  { label: "Cartagena", line: offices.lines[2], icon: "fa-city" as const },
 ];
+
+const formSubmitAction = `https://formsubmit.co/${encodeURIComponent(forms.formSubmitEmail)}`;
 
 const faqs = [
   {
@@ -60,7 +43,7 @@ const faqs = [
 
 <Layout
   title={`Contáctanos - ${siteConfig.site.name}`}
-  description="Contáctanos para cotizaciones de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero. Oficinas en Bogotá, Medellín, Cartagena y Barranquilla."
+  description="Contáctanos para cotizaciones de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero. Sedes en Bogotá, Buenaventura y Cartagena."
 >
   <SchemaOrg
     slot="head"
@@ -99,12 +82,12 @@ const faqs = [
   <section class="pb-24 relative">
     <div class="max-w-7xl mx-auto px-4">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-white p-8 md:p-12 shadow-xl border border-slate-200">
-        <a href="tel:+573114033806" class="text-center group cursor-pointer">
+        <a href={telHref} class="text-center group cursor-pointer">
           <div class="w-14 h-14 bg-primary/10 flex items-center justify-center text-primary mx-auto mb-3 group-hover:bg-primary group-hover:text-white transition-all">
             <i class="fa-solid fa-phone text-2xl"></i>
           </div>
           <p class="font-black text-slate-900 text-sm">Llámenos</p>
-          <p class="text-slate-500 text-sm">+57 311 403 3806</p>
+          <p class="text-slate-500 text-sm">{contact.phoneDisplay}</p>
         </a>
         <a href="mailto:comercial@serviworldlogistics.com" class="text-center group cursor-pointer">
           <div class="w-14 h-14 bg-primary/10 flex items-center justify-center text-primary mx-auto mb-3 group-hover:bg-primary group-hover:text-white transition-all">
@@ -113,7 +96,7 @@ const faqs = [
           <p class="font-black text-slate-900 text-sm">Email</p>
           <p class="text-slate-500 text-sm">comercial@serviworld...</p>
         </a>
-        <a href="https://wa.me/573114033806" target="_blank" class="text-center group cursor-pointer">
+        <a href={waHref} target="_blank" rel="noopener noreferrer" class="text-center group cursor-pointer">
           <div class="w-14 h-14 bg-[#25D366]/10 flex items-center justify-center text-[#25D366] mx-auto mb-3 group-hover:bg-[#25D366] group-hover:text-white transition-all">
             <i class="fa-brands fa-whatsapp text-2xl"></i>
           </div>
@@ -125,7 +108,7 @@ const faqs = [
             <i class="fa-solid fa-clock text-2xl"></i>
           </div>
           <p class="font-black text-slate-900 text-sm">Horario</p>
-          <p class="text-slate-500 text-sm">Lun-Vie 8:00-18:00</p>
+          <p class="text-slate-500 text-sm">Lun-Vie 8:00-17:00</p>
         </div>
       </div>
     </div>
@@ -149,14 +132,18 @@ const faqs = [
             </p>
           </div>
 
+          <!-- POST nativo → FormSubmit.co; _next = /gracias/ (src/pages/gracias.astro). Ver https://formsubmit.co/documentation -->
           <form
-            action="https://api.web3forms.com/submit"
-            method="POST"
+            action={formSubmitAction}
+            method="post"
+            enctype="application/x-www-form-urlencoded"
             class="space-y-6"
           >
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
-            <input type="hidden" name="subject" value="Nueva cotización - Serviworld Logistics" />
-            <input type="hidden" name="redirect" value="https://serviworldlogistics.com/contacto?enviado=true" />
+            <input type="hidden" name="_subject" value="Nueva cotización - Serviworld Logistics" />
+            <input type="hidden" name="_cc" value={forms.formSubmitCc} />
+            <input type="hidden" name="_next" value={forms.formSubmitNextUrl} />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <div class="grid md:grid-cols-2 gap-6">
               <div>
@@ -293,7 +280,7 @@ const faqs = [
                 </div>
                 <div>
                   <p class="font-black text-sm uppercase tracking-wider mb-1">Teléfono principal</p>
-                  <a href="tel:+573114033806" class="text-slate-200 hover:text-white transition-colors">+57 311 403 3806</a>
+                  <a href={telHref} class="text-slate-200 hover:text-white transition-colors">{contact.phoneDisplay}</a>
                 </div>
               </div>
 
@@ -313,7 +300,7 @@ const faqs = [
                 </div>
                 <div>
                   <p class="font-black text-sm uppercase tracking-wider mb-1">Sede principal</p>
-                  <p class="text-slate-200 text-sm">Cll 125 No. 99 - 34<br/>Bogotá, Colombia</p>
+                  <p class="text-slate-200 text-sm">CALLE 25 No 99 – 34<br/>BOGOTA D.C.</p>
                 </div>
               </div>
 
@@ -323,7 +310,7 @@ const faqs = [
                 </div>
                 <div>
                   <p class="font-black text-sm uppercase tracking-wider mb-1">Horario de atención</p>
-                  <p class="text-slate-200 text-sm">Lunes a Viernes<br/>8:00 AM - 6:00 PM (COT)</p>
+                  <p class="text-slate-200 text-sm">Lunes a Viernes<br/>8:00 AM - 5:00 PM (COT)</p>
                 </div>
               </div>
             </div>
@@ -385,22 +372,15 @@ const faqs = [
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {offices.map((office) => (
-            <a
-              href={`tel:${office.phoneFull}`}
-              class="bg-white/10 border border-white/10 p-8 hover:bg-white/20 transition-all group"
-            >
-              <div class="w-14 h-14 bg-white/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-all">
-                <i class={`fa-solid ${office.icon} text-2xl`}></i>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sedesCards.map((sede) => (
+            <div class="bg-white/10 border border-white/10 p-8 hover:bg-white/20 transition-all">
+              <div class="w-14 h-14 bg-white/10 flex items-center justify-center text-accent mb-6">
+                <i class={`fa-solid ${sede.icon} text-2xl`}></i>
               </div>
-              <h3 class="text-xl font-black mb-2">{office.city}</h3>
-              <p class="text-slate-300 text-sm mb-3">{office.address}</p>
-              <p class="text-white font-bold flex items-center gap-2">
-                <i class="fa-solid fa-phone text-xs text-accent"></i>
-                {office.phone}
-              </p>
-            </a>
+              <h3 class="text-xl font-black mb-2">{sede.label}</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">{sede.line}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -422,7 +402,7 @@ const faqs = [
         </div>
         <div class="w-full shadow-xl border border-slate-200">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3482423916334!2d-75.56776258863339!3d6.217724293744261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4682f5092401cf%3A0x7db3d897957aad63!2sServiworld%20Logistics!5e0!3m2!1sen!2sco!4v1771268719224!5m2!1sen!2sco"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.1591257864375!2d-75.53547499999999!3d10.4089336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef62f5e36b2388d%3A0xf4febfc9940173a1!2sServiworld%20Logistics!5e0!3m2!1sen!2sco!4v1775067129354!5m2!1sen!2sco"
             width="100%"
             height="450"
             style="border:0;"
@@ -432,6 +412,17 @@ const faqs = [
             title="Ubicación de Serviworld Logistics en Google Maps"
           ></iframe>
         </div>
+        <p class="text-center mt-8">
+          <a
+            href="https://share.google/WLRFY3vH9oBU9GAUM"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-primary font-black uppercase tracking-widest text-sm border-b-2 border-primary pb-1 hover:text-accent hover:border-accent transition-colors"
+          >
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            Abrir ubicación en Google Maps
+          </a>
+        </p>
       </div>
     </section>
 
@@ -477,15 +468,16 @@ const faqs = [
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="tel:+573114033806"
+            href={telHref}
             class="inline-flex items-center justify-center gap-3 bg-primary text-white px-10 py-5 font-black uppercase tracking-widest text-sm hover:bg-accent transition-all shadow-xl"
           >
             <i class="fa-solid fa-phone"></i>
             Llamar Ahora
           </a>
           <a
-            href="https://wa.me/573114033806?text=Hola%2C%20me%20interesa%20cotizar%20un%20servicio%20de%20logística"
+            href={waHref}
             target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-3 border-2 border-primary text-primary px-10 py-5 font-black uppercase tracking-widest text-sm hover:bg-primary hover:text-white transition-all"
           >
             <i class="fa-brands fa-whatsapp"></i>

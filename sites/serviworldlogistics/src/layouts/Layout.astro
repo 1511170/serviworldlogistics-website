@@ -25,12 +25,19 @@ const {
   noindex = false,
 } = Astro.props;
 
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/contacto", label: "Contáctanos" },
-];
+const { contact, offices } = siteConfig;
+
+const serviceSubLinks = [
+  { href: "/servicios/transporte-maritimo/", label: "Transporte Marítimo Internacional", icon: "fa-ship" },
+  { href: "/servicios/transporte-aereo/", label: "Transporte Aéreo Internacional", icon: "fa-plane" },
+  { href: "/servicios/transporte-terrestre/", label: "Transporte Terrestre", icon: "fa-truck" },
+  { href: "/servicios/agenciamiento-aduanero/", label: "Agenciamiento Aduanero", icon: "fa-gavel" },
+] as const;
+
+const telHref = `tel:${contact.phoneE164.replace(/\s/g, "")}`;
+const waHref = contact.whatsappDefaultMessage
+  ? `${contact.whatsappUrl}?text=${contact.whatsappDefaultMessage}`
+  : contact.whatsappUrl;
 
 const currentPath = Astro.url.pathname;
 ---
@@ -184,16 +191,52 @@ const currentPath = Astro.url.pathname;
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden pb-6 border-t border-slate-100">
-          <nav class="flex flex-col gap-4 pt-4">
-            {navLinks.map((link) => (
-              <a 
-                href={link.href}
-                class="text-slate-600 hover:text-accent font-bold text-sm uppercase tracking-wider transition-colors py-2"
+          <nav class="flex flex-col gap-1 pt-4" aria-label="Principal">
+            <a
+              href="/"
+              class={`text-slate-600 hover:text-accent font-bold text-sm uppercase tracking-wider transition-colors py-2 ${currentPath === "/" ? "text-primary" : ""}`}
+            >
+              Inicio
+            </a>
+            <a
+              href="/nosotros"
+              class={`text-slate-600 hover:text-accent font-bold text-sm uppercase tracking-wider transition-colors py-2 ${currentPath === "/nosotros" ? "text-primary" : ""}`}
+            >
+              Nosotros
+            </a>
+            <div class="border-t border-slate-100 pt-2 mt-1">
+              <button
+                type="button"
+                id="mobile-servicios-btn"
+                class="flex w-full items-center justify-between text-left text-slate-600 hover:text-accent font-bold text-sm uppercase tracking-wider py-2"
+                aria-expanded="false"
+                aria-controls="mobile-servicios-panel"
               >
-                {link.label}
-              </a>
-            ))}
-            <a 
+                <span class={currentPath.startsWith("/servicios") ? "text-primary" : ""}>Servicios</span>
+                <i id="mobile-servicios-chevron" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+              </button>
+              <div id="mobile-servicios-panel" class="hidden flex flex-col border-l-2 border-accent/40 pl-4 ml-1 gap-1 pb-2">
+                {serviceSubLinks.map((s) => (
+                  <a
+                    href={s.href}
+                    class="text-slate-600 hover:text-accent text-sm font-bold py-2 flex items-center gap-2"
+                  >
+                    <i class={`fa-solid ${s.icon} text-primary w-5`}></i>
+                    {s.label}
+                  </a>
+                ))}
+                <a href="/servicios" class="text-accent text-xs font-black uppercase tracking-widest py-2">
+                  Ver todos <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            <a
+              href="/contacto"
+              class={`text-slate-600 hover:text-accent font-bold text-sm uppercase tracking-wider transition-colors py-2 ${currentPath === "/contacto" ? "text-primary" : ""}`}
+            >
+              Contáctanos
+            </a>
+            <a
               href="/contacto"
               class="bg-accent text-white px-8 py-4 font-bold text-xs uppercase tracking-widest text-center hover:bg-primary transition-all mt-2"
             >
@@ -233,10 +276,10 @@ const currentPath = Astro.url.pathname;
           <div>
             <h4 class="text-white font-black mb-8 uppercase text-sm tracking-[0.2em]">Divisiones</h4>
             <ul class="space-y-4 font-light">
-              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Marítimo Internacional</a></li>
-              <li><a class="hover:text-accent transition-colors" href="/servicios">Flete Aéreo Internacional</a></li>
-              <li><a class="hover:text-accent transition-colors" href="/servicios">Distribución Terrestre</a></li>
-              <li><a class="hover:text-accent transition-colors" href="/servicios">Consultoría Aduanera</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios/transporte-maritimo/">Flete Marítimo Internacional</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios/transporte-aereo/">Flete Aéreo Internacional</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios/transporte-terrestre/">Distribución Terrestre</a></li>
+              <li><a class="hover:text-accent transition-colors" href="/servicios/agenciamiento-aduanero/">Consultoría Aduanera</a></li>
             </ul>
           </div>
           
@@ -244,17 +287,15 @@ const currentPath = Astro.url.pathname;
           <div>
             <h4 class="text-white font-black mb-8 uppercase text-sm tracking-[0.2em]">Oficinas</h4>
             <ul class="space-y-6 font-light">
+              {offices.lines.map((line) => (
+                <li class="flex items-start">
+                  <i class="fa-solid fa-location-dot text-accent mr-4 mt-1 shrink-0"></i>
+                  <span>{line}</span>
+                </li>
+              ))}
               <li class="flex items-start">
-                <i class="fa-solid fa-location-dot text-accent mr-4 mt-1"></i>
-                <span>Bogotá: Calle 125 No. 99 - 34</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fa-solid fa-location-dot text-accent mr-4 mt-1"></i>
-                <span>Medellín: Calle 18 No. 35 - 69</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fa-solid fa-phone text-accent mr-4 mt-1"></i>
-                <span>+57 311 403 3806</span>
+                <i class="fa-solid fa-phone text-accent mr-4 mt-1 shrink-0"></i>
+                <a href={telHref} class="hover:text-accent transition-colors">{contact.phoneDisplay}</a>
               </li>
             </ul>
           </div>
@@ -290,8 +331,9 @@ const currentPath = Astro.url.pathname;
 
     <!-- WhatsApp Float Button -->
     <a 
-      href="https://wa.me/573114033806" 
+      href={waHref}
       target="_blank"
+      rel="noopener noreferrer"
       class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center text-3xl"
       aria-label="WhatsApp"
     >
@@ -302,9 +344,19 @@ const currentPath = Astro.url.pathname;
     <script>
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
-      
+      const serviciosBtn = document.getElementById('mobile-servicios-btn');
+      const serviciosPanel = document.getElementById('mobile-servicios-panel');
+      const serviciosChevron = document.getElementById('mobile-servicios-chevron');
+
       btn?.addEventListener('click', () => {
         menu?.classList.toggle('hidden');
+      });
+
+      serviciosBtn?.addEventListener('click', () => {
+        serviciosPanel?.classList.toggle('hidden');
+        const expanded = serviciosPanel && !serviciosPanel.classList.contains('hidden');
+        serviciosBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        serviciosChevron?.classList.toggle('rotate-180', !!expanded);
       });
     </script>
   </body>

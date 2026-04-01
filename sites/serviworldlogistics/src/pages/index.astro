@@ -44,25 +44,29 @@ const content = {
       icon: "fa-ship",
       title: "Transporte Marítimo Internacional",
       description: "Fletes competitivos en contenedores FCL y carga consolidada LCL.",
-      image: "/images/servicios/transporte-maritimo-internacional-colombia.webp"
+      image: "/images/servicios/transporte-maritimo-internacional-colombia.webp",
+      href: "/servicios/transporte-maritimo/"
     },
     {
       icon: "fa-plane-departure",
       title: "Carga Aérea Internacional",
       description: "Agilidad extrema para envíos urgentes y mercancías de alto valor.",
-      image: "/images/servicios/transporte-aereo-internacional-colombia.webp"
+      image: "/images/servicios/transporte-aereo-internacional-colombia.webp",
+      href: "/servicios/transporte-aereo/"
     },
     {
       icon: "fa-truck-container",
       title: "Transporte Terrestre",
       description: "Seguridad satelital 24/7 en todas nuestras rutas nacionales.",
-      image: "/images/servicios/transporte-terrestre-carga-colombia.webp"
+      image: "/images/servicios/transporte-terrestre-carga-colombia.webp",
+      href: "/servicios/transporte-terrestre/"
     },
     {
       icon: "fa-gavel",
       title: "Agenciamiento Aduanero",
       description: "Asesoría jurídica y trámites ágiles ante autoridades aduaneras.",
-      image: "/images/servicios/agenciamiento-aduanero-colombia.webp"
+      image: "/images/servicios/agenciamiento-aduanero-colombia.webp",
+      href: "/servicios/agenciamiento-aduanero/"
     }
   ],
   specialties: {
@@ -87,18 +91,14 @@ const content = {
   },
   contact: {
     headline: "¿Hablamos de su próximo embarque?",
-    subheadline: "Solicite una auditoría logística sin costo para su empresa.",
-    phone: "+57 311 4033806",
-    cities: [
-      { name: "Bogotá", phone: "(1) 3906723", address: "Calle 125 No. 99 - 34" },
-      { name: "Medellín", phone: "(4) 6050383", address: "Calle 18 No. 35 - 69" },
-      { name: "Cartagena", phone: "(5) 6944321", address: "" }
-    ]
+    subheadline: "Solicite una auditoría logística sin costo para su empresa."
   }
 };
+
+const telHref = `tel:${siteConfig.contact.phoneE164.replace(/\s/g, "")}`;
 ---
 
-<Layout title={`${siteConfig.site.name} - Excelencia en Logística Internacional`} description="Serviworld Logistics: empresa colombiana de logística integral con más de 15 años de experiencia en transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero. Oficinas en Bogotá, Medellín, Cartagena y Barranquilla.">
+<Layout title={`${siteConfig.site.name} - Excelencia en Logística Internacional`} description="Serviworld Logistics: empresa colombiana de logística integral con más de 15 años de experiencia en transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero. Sedes en Bogotá, Buenaventura y Cartagena.">
   <SchemaOrg slot="head" type={['Organization', 'WebSite', 'LocalBusiness']} />
   <main class="font-body">
     <!-- Hero Section -->
@@ -126,7 +126,7 @@ const content = {
           </p>
           <div class="flex flex-col sm:flex-row gap-6">
             <a 
-              href="#services"
+              href="/servicios"
               class="bg-white text-primary px-10 py-5 font-black uppercase tracking-widest text-sm hover:bg-accent hover:text-white transition-all text-center shadow-2xl"
             >
               {content.hero.ctaPrimary}
@@ -220,7 +220,7 @@ const content = {
                   {service.description}
                 </p>
                 <a 
-                  href="/servicios"
+                  href={service.href}
                   class="flex items-center text-xs font-black uppercase tracking-widest text-white hover:text-accent transition-colors"
                 >
                   Ver detalles <i class="fa-solid fa-plus-circle ml-3"></i>
@@ -303,7 +303,7 @@ const content = {
           </div>
           <div class="flex flex-col sm:flex-row gap-4 shrink-0 w-full lg:w-auto">
             <a 
-              href={`tel:${content.contact.phone.replace(/\s/g, '')}`}
+              href={telHref}
               class="flex items-center justify-center bg-accent text-white px-10 py-5 font-black uppercase tracking-widest text-xs hover:bg-white hover:text-primary transition-all shadow-2xl"
             >
               <i class="fa-solid fa-phone-volume mr-3"></i> Contactar Ahora
@@ -323,13 +323,9 @@ const content = {
     <section class="bg-slate-100 dark:bg-slate-900 py-12">
       <div class="max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {content.contact.cities.map((city) => (
+          {siteConfig.offices.lines.map((line) => (
             <div class="p-6">
-              <h4 class="text-xl font-black text-primary dark:text-white uppercase tracking-tighter mb-2 font-display">
-                {city.name}
-              </h4>
-              {city.address && <p class="text-slate-600 dark:text-slate-400 mb-1">{city.address}</p>}
-              <p class="text-accent font-bold">{city.phone}</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-relaxed">{line}</p>
             </div>
           ))}
         </div>

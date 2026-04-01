@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import siteConfig from '../../config/site.config.ts';
+
+const telHref = `tel:${siteConfig.contact.phoneE164.replace(/\s/g, "")}`;
 ---
 
 <Layout 
@@ -40,7 +42,7 @@ import siteConfig from '../../config/site.config.ts';
           <h2 class="text-2xl font-display font-bold text-slate-900 mt-12 mb-4">1. Responsable del Tratamiento</h2>
           <p class="text-slate-600 leading-relaxed">
             <strong>SERVIWORLD LOGISTICS SAS</strong>, identificada con NIT 900.XXX.XXX-X, con domicilio 
-            en Calle 125 No. 99 - 34, Bogotá, Colombia, es responsable del tratamiento de los datos 
+            en CALLE 25 No 99 – 34, BOGOTA D.C., Colombia, es responsable del tratamiento de los datos 
             personales recolectados a través de este sitio web y sus servicios.
           </p>
 
@@ -191,13 +193,13 @@ import siteConfig from '../../config/site.config.ts';
               </li>
               <li class="flex items-center gap-3">
                 <i class="fa-solid fa-phone text-primary"></i>
-                <a href="tel:+573114033806" class="text-primary hover:underline">
-                  +57 311 403 3806
+                <a href={telHref} class="text-primary hover:underline">
+                  {siteConfig.contact.phoneDisplay}
                 </a>
               </li>
               <li class="flex items-center gap-3">
                 <i class="fa-solid fa-location-dot text-primary"></i>
-                <span>Calle 125 No. 99 - 34, Bogotá, Colombia</span>
+                <span>CALLE 25 No 99 – 34, BOGOTA D.C.</span>
               </li>
             </ul>
           </div>

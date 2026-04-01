@@ -32,6 +32,8 @@ const { type, data = {}, breadcrumbs = [], faqs = [] } = Astro.props;
 
 const siteUrl = `https://${siteConfig.site.domain}`;
 const types = Array.isArray(type) ? type : [type];
+const telDigits = siteConfig.contact.phoneE164.replace(/\D/g, "");
+const telephoneFormatted = `+${telDigits.slice(0, 2)}-${telDigits.slice(2, 5)}-${telDigits.slice(5, 8)}-${telDigits.slice(8)}`;
 
 // -- Schema builders --
 
@@ -62,11 +64,11 @@ const organizationSchema = {
     "Carga refrigerada",
     "Carga de proyectos"
   ],
-  "telephone": "+57-311-403-3806",
+  "telephone": telephoneFormatted,
   "email": "comercial@serviworldlogistics.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Cll 125 No. 99 - 34",
+    "streetAddress": "CALLE 25 No 99 – 34",
     "addressLocality": "Bogotá",
     "addressRegion": "Cundinamarca",
     "addressCountry": "CO"
@@ -78,16 +80,10 @@ const organizationSchema = {
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+57-311-403-3806",
-      "contactType": "sales",
+      "telephone": telephoneFormatted,
+      "contactType": "customer service",
       "availableLanguage": ["Spanish", "English"],
       "areaServed": "CO"
-    },
-    {
-      "@type": "ContactPoint",
-      "telephone": "+57-1-390-6723",
-      "contactType": "customer service",
-      "availableLanguage": "Spanish"
     }
   ]
 };
@@ -116,12 +112,12 @@ const localBusinessSchema = {
   "name": "Serviworld Logistics",
   "image": `${siteUrl}/logo-new.webp`,
   "url": siteUrl,
-  "telephone": "+57-311-403-3806",
+  "telephone": telephoneFormatted,
   "email": "comercial@serviworldlogistics.com",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Cll 125 No. 99 - 34",
+    "streetAddress": "CALLE 25 No 99 – 34",
     "addressLocality": "Bogotá",
     "addressRegion": "Cundinamarca",
     "postalCode": "111121",
@@ -129,16 +125,16 @@ const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 4.7110,
+    "latitude": 4.711,
     "longitude": -74.0721
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     "opens": "08:00",
-    "closes": "18:00"
+    "closes": "17:00"
   },
-  "hasMap": "https://maps.google.com/?q=Cll+125+No+99-34+Bogota+Colombia"
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Serviworld+Logistics"
 };
 
 function buildServiceSchema(serviceData: Record<string, any>) {
@@ -223,7 +219,7 @@ const contactPageSchema = {
   "mainEntity": { "@id": `${siteUrl}/#organization` },
   "url": `${siteUrl}/contacto`,
   "name": "Contacto - Serviworld Logistics",
-  "description": "Contáctenos para cotizaciones de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero. Oficinas en Bogotá, Medellín, Cartagena y Barranquilla."
+  "description": "Contáctenos para cotizaciones de transporte marítimo internacional, carga aérea internacional, transporte terrestre y agenciamiento aduanero. Sedes en Bogotá, Buenaventura y Cartagena."
 };
 
 // -- Build final graph --

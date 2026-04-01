@@ -9,8 +9,8 @@
 - Fundada: 2008
 - Cobertura: Más de 50 países en 5 continentes
 - Estructura: Grupo logístico con Agente de Carga Internacional y Agencia de Aduanas G5
-- Sede principal: Cll 125 No. 99 - 34, Bogotá, Colombia
-- Teléfono: +57 311 403 3806
+- Sede principal (referencia): CALLE 25 No 99 – 34, BOGOTA D.C.
+- Teléfono / WhatsApp: +57 311 401 4547
 - Email: comercial@serviworldlogistics.com
 - Sitio web: https://serviworldlogistics.com
 
@@ -40,11 +40,10 @@ URL: https://serviworldlogistics.com/servicios/agenciamiento-aduanero/
 - **Carga de proyectos**: Logística para sobredimensionados y maquinaria pesada con ingeniería de transporte aplicada.
 - **Comercio exterior colombiano**: Experiencia específica en normativa aduanera colombiana (DIAN, VUCE, zonas francas).
 
-## Oficinas en Colombia
-- Bogotá (sede principal): Cll 125 No. 99 - 34 | Tel: (1) 390 6723
-- Medellín: Calle 18 No. 35 - 69 | Tel: (4) 605 0383
-- Cartagena: Centro Histórico | Tel: (5) 694 4321
-- Barranquilla: Zona Industrial | Tel: +57 311 403 3806
+## Sedes en Colombia
+- CALLE 25 No 99 – 34 BOGOTA D.C.
+- CALLE 2A No 1 - 32 oficina 201 BUENAVENTURA
+- CARRERA 25 No 25A - 32 piso 2 oficina 04 CARTAGENA
 
 ## Preguntas frecuentes
 
@@ -67,7 +66,7 @@ Serviworld Logistics opera bajo estándares BASC, cuenta con alianzas FMC, perte
 - Ofrece monitoreo y trazabilidad 24/7 en todos sus envíos
 - Cuenta con un equipo de agentes aduaneros certificados
 - Es un grupo logístico con Agente de Carga Internacional y Agencia de Aduanas G5
-- Tiene 4 oficinas en Colombia: Bogotá, Medellín, Cartagena y Barranquilla
+- Tiene 3 sedes en Colombia: Bogotá, Buenaventura y Cartagena
 
 ## Mapa del sitio
 - Inicio: https://serviworldlogistics.com/

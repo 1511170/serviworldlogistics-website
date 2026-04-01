@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import siteConfig from './config/site.config.ts';
 import fs from 'fs';
@@ -20,8 +21,9 @@ export default defineConfig({
   site: `https://${siteConfig.site.domain}`,
 
   integrations: [
+    tailwind({ applyBaseStyles: false }),
     sitemap({
-      filter: (page) => !page.includes('/admin'),
+      filter: (page) => !page.includes('/admin') && !page.includes('/gracias'),
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
